@@ -6,9 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>spryciarzepl</title>
     <meta name="author" content="Dawid Przybylski, Szymon Płotka">
+    <link rel="stylesheet" href="mystyle.css">        
 </head>
 <body>
-    <div id="popularne"></div>
+    
+    <header>
+
+        <ul>
+            <li><a id = "home" class="active" onclick=getMovies(PopularneURL)>Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+
+    </header>
+
+    <div id="popularne"> </div>
+    <div id="specificMovie"> </div>
     <script src="myscript.js"></script>
 </body>
 </html>
