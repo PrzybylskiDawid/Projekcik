@@ -1,0 +1,95 @@
+body {
+            scrollbar-width: none;
+            margin: 0;
+            padding: 0;
+            font-family:Verdana, Tahoma, sans-serif;
+        }
+
+        header
+        {
+            color: rgb(255, 255, 255);
+            background-color: black;
+            width: 100%;
+            height: 135px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+            
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            color: goldenrod;
+            text-decoration: underline goldenrod;
+        }  
+        
+        li a.active {
+            color: goldenrod;
+            text-decoration: underline goldenrod;
+        }  
+        
+        img {
+            width: 300px;
+            height: auto;
+            }
+
+        .popularMovies {
+            float: left;
+            text-align: center;
+            margin: 2%;
+            font-size: 18px;  
+            margin-top: 10px; 
+            overflow: hidden;  
+            width: 300px;
+            height: 530px;
+            
+              
+        }
+        .popularMovies:hover{
+            box-shadow: 0px -10px 20px 0px rgba(0, 0, 0, 0.5);
+            transform: translateY(5px); 
+        }
+
+        h1.POPULARNE{
+            margin-top: 30px;
+        }
+        
+        img.star{
+            height: 25px;
+            width: auto;
+        }
+        .specificMovie{
+            text-align: left;
+            margin: auto;
+            font-size: 28px;  
+            margin-top: 80px; 
+            overflow: hidden;  
+            width: 1200px;
+            height: 530px;
+            padding: 10px;
+            box-shadow: 0px -10px 20px 0px rgba(0, 0, 0, 0.5);
+        }
+        .specificMovie #imgurl{
+            float: left;    
+            margin-right: 10px;        
+        }
+
+        .specificMovie .star{
+            height: 75px;
+            width: auto;
+        }
