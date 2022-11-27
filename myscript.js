@@ -64,8 +64,5 @@ function showMovie(id, title, poster_path, overview, release_date, vote_average,
     document.getElementById("specificMovie").innerHTML += `<br>
     director: ${director}<br><br>
     overview: ${overview}
-    
     `
-    
-    
 }
