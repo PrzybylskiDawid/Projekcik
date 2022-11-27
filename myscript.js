@@ -43,7 +43,6 @@ function showMovies(data) {
 }
 getMovies(PopularneURL);
 
-
 function showMovie(id, title, poster_path, overview, release_date, vote_average, vote_count, genre_ids, director) {
     document.getElementById("specificMovie").classList.add('specificMovie');
     document.getElementById("popularne").innerHTML = '';
@@ -59,7 +58,6 @@ function showMovie(id, title, poster_path, overview, release_date, vote_average,
         let genre = agenrees.find(element => element.id == words[i]);
         document.getElementById("specificMovie").innerHTML += genre.name+ ", ";
     }
-
 
     document.getElementById("specificMovie").innerHTML += `<br>
     director: ${director}<br><br>
