@@ -56,7 +56,7 @@ function showMovie(id, title, poster_path, overview, release_date, vote_average,
     document.getElementById("home").classList.remove('active');
     document.getElementById("specificMovie").innerHTML =
     `<img id="imgurl" src="${IMG_URL + poster_path}"><br>
-    <center>${title} <img class="star" src="star.png">${vote_average}<p style="color: gray;">(${vote_count})</center>
+    <center>${title} <img class="star" src="star.png">${vote_average}<span style="color: gray;">(${vote_count})</span></center>
     release date: ${release_date}<br>
     genres: `;
     const words = genre_ids.split(',');
@@ -92,3 +92,5 @@ function Search() {
     searchResult = 'https://api.themoviedb.org/3/search/movie?api_key=1e1a19cd7136c245a895276fd909e7c9&language=en-US&query='+searchInput+'&page=1&include_adult=false'
     getMovies(searchResult);
 }
+
+

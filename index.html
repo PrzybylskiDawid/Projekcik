@@ -1,40 +1,54 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>spryciarzepl</title>
     <meta name="author" content="Dawid Przybylski, Szymon Płotka">
-    <link rel="stylesheet" href="mystyle.css">        
+    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
-<body>
-    
-    <header>
 
-        <ul>
-            <li><a id = "home" class="active" onclick=getMovies(PopularneURL)>Home</a></li>
-            <li><a id = "28" onclick=SortByGenre(28)>Action</a></li>
-            <li><a id = "12" onclick=SortByGenre(12)>Adventure</a></li>
-            <li><a id = "16" onclick=SortByGenre(16)>Animation</a></li>
-            <li><a id = "35" onclick=SortByGenre(35)>Comedy</a></li>
-            <li><a id = "80" onclick=SortByGenre(80)>Crime</a></li>
-            <li><a id = "99" onclick=SortByGenre(99)>Documentary</a></li>
-            <li><a id = "18" onclick=SortByGenre(18)>Drama</a></li>
-            <li><a id = "10751" onclick=SortByGenre(10751)>Family</a></li>
-            <li><a id = "14" onclick=SortByGenre(14)>Fantasy</a></li>
-            <li><a id = "36" onclick=SortByGenre(36)>History</a></li>
-            <li><a id = "27" onclick=SortByGenre(27)>Horror</a></li>
-            <li><a id = "10402" onclick=SortByGenre(10402)>Music</a></li>
-            <li><a id = "9648" onclick=SortByGenre(9648)>Mystery</a></li>
-            <li><a id = "10749" onclick=SortByGenre(10749)>Romance</a></li>
-            <li><a id = "878" onclick=SortByGenre(878)>Science Fiction</a></li>
-            <li><a id = "10770" onclick=SortByGenre(10770)>TV Movie</a></li>
-            <li><a id = "53" onclick=SortByGenre(53)>Thriller</a></li>
-            <li><a id = "10752" onclick=SortByGenre(10752)>War</a></li>
-            <li><a id = "37" onclick=SortByGenre(37)>Western</a></li>
-        
-          </ul>
+<body>
+
+    <header>
+        <h2>spryciarzepl</h2>
+        <div id="gatunki">
+            <ul>
+                <center>
+                    <li><a id="home" class="active przyciski" onclick=getMovies(PopularneURL)>Home</a></li>
+                    <li><a id="28" class="przyciski" onclick=SortByGenre(28)>Action</a></li>
+                    <li><a id="12" class="przyciski" onclick=SortByGenre(12)>Adventure</a></li>
+                    <li><a id="16" class="przyciski" onclick=SortByGenre(16)>Animation</a></li>
+                    <li><a id="35" class="przyciski" onclick=SortByGenre(35)>Comedy</a></li>
+                    <li><a id="80" class="przyciski" onclick=SortByGenre(80)>Crime</a></li>
+                    <li><a id="99" class="przyciski" onclick=SortByGenre(99)>Documentary</a></li>
+                    <li><a id="18" class="przyciski" onclick=SortByGenre(18)>Drama</a></li>
+                    <li><a id="10751" class="przyciski" onclick=SortByGenre(10751)>Family</a></li>
+                    <li><a id="14" class="przyciski" onclick=SortByGenre(14)>Fantasy</a></li>
+                    <li><a id="36" class="przyciski" onclick=SortByGenre(36)>History</a></li>
+                    <li><a id="27" class="przyciski" onclick=SortByGenre(27)>Horror</a></li>
+                    <li><a id="10402" class="przyciski" onclick=SortByGenre(10402)>Music</a></li>
+                    <li><a id="9648" class="przyciski" onclick=SortByGenre(9648)>Mystery</a></li>
+                    <li><a id="10749" class="przyciski" onclick=SortByGenre(10749)>Romance</a></li>
+                    <li><a id="878" class="przyciski" onclick=SortByGenre(878)>Science Fiction</a></li>
+                    <li><a id="10770" class="przyciski" onclick=SortByGenre(10770)>TV Movie</a></li>
+                    <li><a id="53" class="przyciski" onclick=SortByGenre(53)>Thriller</a></li>
+                    <li><a id="10752" class="przyciski" onclick=SortByGenre(10752)>War</a></li>
+                    <li><a id="37" class="przyciski" onclick=SortByGenre(37)>Western</a></li>
+                </center>
+            </ul>
+            <form action="">
+                <input type="search" id="search" placeholder="Wyszukaj film" required>
+                <i class="fa fa-search" onclick="Search()"></i> 
+            </form>
+            <button id="czysc" onclick="document.getElementById('search').value = ''" class="button-17">Wyczyść pole wyszukiwania</button>
+           
+            <!--   <input type="search" id="search" placeholder="search" name="q"><button type="button" onclick="Search()">Search</button>-->
+            </div>
 
     </header>
 
@@ -42,4 +56,5 @@
     <div id="specificMovie"> </div>
     <script src="myscript.js"></script>
 </body>
+
 </html>
