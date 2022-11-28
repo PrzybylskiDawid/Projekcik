@@ -1,5 +1,6 @@
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 const PopularneURL = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=1e1a19cd7136c245a895276fd909e7c9"
+
 agenrees = [
     {"id":28,"name":"Action"},
     {"id":12,"name":"Adventure"},
@@ -28,10 +29,13 @@ function getMovies(url){
     })
 }
 
+// wyświetlanie filmów
+
 function showMovies(data) {
-    document.getElementById("home").classList.add('active');
-    
-    document.getElementById('popularne').innerHTML += '<center><h1 class="POPULARNE">POPULARNE</h1></center>';
+    document.getElementById("popularne").innerHTML = '';
+    document.getElementById("specificMovie").innerHTML = '';
+    document.getElementById("specificMovie").classList.remove('specificMovie');
+    //document.getElementById('popularne').innerHTML += '<center><h1 class="POPULARNE">POPULARNE</h1></center>';
     data.forEach(movie => {
         const {id, title, poster_path, overview, release_date ,vote_average, vote_count, genre_ids, director} = movie;
         const movies = document.createElement('div'); 
@@ -42,6 +46,9 @@ function showMovies(data) {
        
 }
 getMovies(PopularneURL);
+
+
+// wyświetlenie pojedyńczego filmu
 
 function showMovie(id, title, poster_path, overview, release_date, vote_average, vote_count, genre_ids, director) {
     document.getElementById("specificMovie").classList.add('specificMovie');
@@ -63,4 +70,15 @@ function showMovie(id, title, poster_path, overview, release_date, vote_average,
     director: ${director}<br><br>
     overview: ${overview}
     `
+}
+
+// sortowanie po gatunku  
+
+function SortByGenre(genreId) {
+    var elems = document.querySelector(".active");
+    elems.classList.remove("active");
+    document.getElementById(genreId).classList.add('active');
+    document.getElementById("popularne").innerHTML = '';
+    genreId = 'https://api.themoviedb.org/3/discover/movie?with_genres='+genreId+'&sort_by=popularity.desc&api_key=1e1a19cd7136c245a895276fd909e7c9'
+    getMovies(genreId);
 }
