@@ -60,7 +60,6 @@ function showMovie(id, title, poster_path, overview, release_date, vote_average,
     release date: ${release_date}<br>
     genres: `;
     const words = genre_ids.split(',');
-    console.log(words);
     for (let i = 0; i < words.length; i++) {
         let genre = agenrees.find(element => element.id == words[i]);
         document.getElementById("specificMovie").innerHTML += genre.name+ ", ";
@@ -81,4 +80,15 @@ function SortByGenre(genreId) {
     document.getElementById("popularne").innerHTML = '';
     genreId = 'https://api.themoviedb.org/3/discover/movie?with_genres='+genreId+'&sort_by=popularity.desc&api_key=1e1a19cd7136c245a895276fd909e7c9'
     getMovies(genreId);
+}
+
+
+// search
+
+function Search() {
+
+    searchInput = document.getElementById('search').value;
+    searchInput = searchInput.replace(' ', '%20')
+    searchResult = 'https://api.themoviedb.org/3/search/movie?api_key=1e1a19cd7136c245a895276fd909e7c9&language=en-US&query='+searchInput+'&page=1&include_adult=false'
+    getMovies(searchResult);
 }
