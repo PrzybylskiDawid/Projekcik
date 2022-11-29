@@ -68,9 +68,11 @@ function showMovie(id, title, poster_path, overview, release_date, vote_average,
     */
     document.getElementById("specificMovie").innerHTML =
     `<img id="imgurl" src="${IMG_URL + poster_path}"><br>
+
     <center><h2>${title}</h2> <img class="star" src="star.png">${vote_average}<span style="color: gray;">(${vote_count})</span></center>
     Release date: ${release_date}<br>
     Genres: `;
+
     const words = genre_ids.split(',');
     for (let i = 0; i < words.length; i++) {
         let genre = agenrees.find(element => element.id == words[i]);
@@ -114,4 +116,6 @@ function Search() {
     document.getElementById("sortowanie2").innerHTML = '<button id="czysc" onclick="sortdown()">Sort by date ↓</button>';
     getMovies(searchResult);
 
+
 }
+
