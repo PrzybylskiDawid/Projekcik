@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="pl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>spryciarzepl</title>
-    <meta name="author" content="Dawid Przybylski, Szymon Płotka">
-    <link rel="stylesheet" href="mystyle.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-</head>
-
-<body>
-
-    <header>
-       <center> <h2>spryciarzepl</h2></center>
-        <div id="gatunki">
-            <ul>
-                <center>
-                    <li><a id="home" class="active przyciski" onclick=getMovies(PopularneURL)>Home</a></li>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>spryciarzepl</title>
+        <meta name="author" content="Dawid Przybylski, Szymon Płotka">
+        <link rel="stylesheet" href="mystyle.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+            integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    </head>
+    <body>
+        <header>
+            <h2>spryciarzepl</h2>
+            <div id="gatunki">
+                <ul>
+                    <li><a id="10" class="active przyciski" onclick=SortByGenre(10)>Home</a></li>
                     <li><a id="28" class="przyciski" onclick=SortByGenre(28)>Action</a></li>
                     <li><a id="12" class="przyciski" onclick=SortByGenre(12)>Adventure</a></li>
                     <li><a id="16" class="przyciski" onclick=SortByGenre(16)>Animation</a></li>
@@ -39,24 +35,22 @@
                     <li><a id="53" class="przyciski" onclick=SortByGenre(53)>Thriller</a></li>
                     <li><a id="10752" class="przyciski" onclick=SortByGenre(10752)>War</a></li>
                     <li><a id="37" class="przyciski" onclick=SortByGenre(37)>Western</a></li>
-                </center>
-            </ul>
-            <form action="">
-                <input type="search" id="search" placeholder="Wyszukaj film" required>
-                <i class="fa fa-search" onclick="Search()"></i> 
-            </form>
-            <button id="czysc" onclick="document.getElementById('search').value = ''" class="button-17">Wyczyść pole wyszukiwania</button>
-           <div id="sortowanie"></div>
-           <div id="sortowanie2"></div>
-            <!--   <input type="search" id="search" placeholder="search" name="q"><button type="button" onclick="Search()">Search</button>-->
+                </ul>
+                <form action="">
+                    <input type="search" id="search" placeholder="Search Movie" list="suggestions" required>
+                    <i class="fa fa-search" onclick="Search()"></i> 
+                </form>
+                <form action="">
+                    <input type="search" id="search2" placeholder="Search By Genre" list="genres" required>
+                    <i class="fa fa-search" onclick="SearchGenre()"></i> 
+                </form>
+                <button id="czysc" onclick="document.getElementById('search').value = ''" class="button-17">Wyczyść pole wyszukiwania</button>
             </div>
-
-          
-    </header>
-
-    <div id="popularne"> </div>
-    <div id="specificMovie"> </div>
-    <script src="myscript.js"></script>
-</body>
-
+            <datalist id = "suggestions"></datalist>
+            <datalist id = "genres"></datalist>
+        </header>
+        <div id="popularne"> </div>
+        <div id="specificMovie"> </div>
+        <script src="myscript.js"></script>
+    </body>
 </html>
