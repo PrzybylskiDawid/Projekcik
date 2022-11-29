@@ -35,6 +35,9 @@ function showMovies(data) {
     document.getElementById("popularne").innerHTML = '';
     document.getElementById("specificMovie").innerHTML = '';
     document.getElementById("specificMovie").classList.remove('specificMovie');
+
+
+
     //document.getElementById('popularne').innerHTML += '<center><h1 class="POPULARNE">POPULARNE</h1></center>';
     data.forEach(movie => {
         const {id, title, poster_path, overview, release_date ,vote_average, vote_count, genre_ids, director} = movie;
@@ -42,23 +45,32 @@ function showMovies(data) {
         movies.className = 'popularMovies';   
         movies.innerHTML += `<img onclick="showMovie(${id}, '${title}', '${poster_path}', '${overview}', '${release_date}', '${vote_average}', '${vote_count}', '${genre_ids}', '${director}')" src="${IMG_URL + poster_path}"><br><p>${title} <img class="star" src="star.png">${vote_average}</p>`
         document.getElementById('popularne').appendChild(movies);
+
+
     })
-       
+
 }
 getMovies(PopularneURL);
 
 
+
+
+
 // wyświetlenie pojedyńczego filmu
 
-function showMovie(id, title, poster_path, overview, release_date, vote_average, vote_count, genre_ids, director) {
+function showMovie(id, title, poster_path, overview, release_date, vote_average, vote_count, genre_ids, Director) {
     document.getElementById("specificMovie").classList.add('specificMovie');
     document.getElementById("popularne").innerHTML = '';
     document.getElementById("home").classList.remove('active');
+   /* fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=1e1a19cd7136c245a895276fd909e7c9`)
+    .then(response => response.json())
+    .then((jsonData)=>jsonData.crew.filter(({job})=> job ==='Director'))
+    */
     document.getElementById("specificMovie").innerHTML =
     `<img id="imgurl" src="${IMG_URL + poster_path}"><br>
-    <center>${title} <img class="star" src="star.png">${vote_average}<p style="color: gray;">(${vote_count})</center>
-    release date: ${release_date}<br>
-    genres: `;
+    <center><h2>${title}</h2> <img class="star" src="star.png">${vote_average}<span style="color: gray;">(${vote_count})</span></center>
+    Release date: ${release_date}<br>
+    Genres: `;
     const words = genre_ids.split(',');
     for (let i = 0; i < words.length; i++) {
         let genre = agenrees.find(element => element.id == words[i]);
@@ -66,8 +78,11 @@ function showMovie(id, title, poster_path, overview, release_date, vote_average,
     }
 
     document.getElementById("specificMovie").innerHTML += `<br>
-    director: ${director}<br><br>
-    overview: ${overview}
+
+    Director: ${Director}<br><br>
+    <div id="opis">
+    Overview: ${overview}
+    </div>
     `
 }
 
@@ -84,11 +99,19 @@ function SortByGenre(genreId) {
 
 
 // search
-
+sortup=(release_date)=>{
+    release_date.sort((a,b)=>a.getTime()-b.getTime());
+}
+sortdown=(release_date)=>{
+    release_date.sort((a,b)=>b.getTime()-a.getTime());
+}
 function Search() {
 
     searchInput = document.getElementById('search').value;
     searchInput = searchInput.replace(' ', '%20')
     searchResult = 'https://api.themoviedb.org/3/search/movie?api_key=1e1a19cd7136c245a895276fd909e7c9&language=en-US&query='+searchInput+'&page=1&include_adult=false'
+    document.getElementById("sortowanie").innerHTML = '<button id="czysc" onclick="sortup()">Sort by date ↑</button>';
+    document.getElementById("sortowanie2").innerHTML = '<button id="czysc" onclick="sortdown()">Sort by date ↓</button>';
     getMovies(searchResult);
+
 }
